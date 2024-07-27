@@ -8,7 +8,10 @@ Get real-time metadata from online radio streams!
    - **Example:** `https:twj.es/start_monitoring/?radio_url=https://example.com/stream` 
 
 2. **Get Radio Information:** Once monitoring is started, access the `/radio_info/` endpoint for real-time metadata and history.
-   - **Example:** `https:twj.es/radio_info/?radio_url=https://example.com/stream` 
+   - **Example:** `https:twj.es/radio_info/?radio_url=https://example.com/stream`
+     
+3. **Get Radio Complete Histoy:** Once monitoring is started, access the `/radio_histoy/` endpoint for complete history.
+   - **Example:** `https://twj.es/radio_history/?radio_url=https://example.com/stream`
 
 ### Available Endpoints:
 

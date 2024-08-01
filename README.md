@@ -27,7 +27,11 @@ Our API provides detailed radio information, including current song details, son
 
 ### Important Note
 
-The `/get_stream_title/` endpoint, which updates the metadata, is intended to be called regularly by a client-side script. This script should run on the player's environment, ensuring that the database is continuously updated with the latest song information. As users listen to the radio, the script makes requests to keep the song history up-to-date.
+The `/get_stream_title/` endpoint, which updates the metadata, is intended to be called regularly by a client-side script. This script should run in the player's environment, ensuring that the database is continuously updated with the latest song information. As users listen to the radio, the script makes requests to keep the song history up-to-date.
+
+### Example Player
+
+For a practical implementation, you can refer to a free radio player that is already updated to work with this API. Check it out here: [RadioPlayer on GitHub](https://github.com/jailsonsb2/RadioPlayer). This example player includes built-in functionality to handle API requests and keep the metadata current.
 
 ### Contact
 

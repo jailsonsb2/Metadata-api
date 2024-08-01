@@ -2,29 +2,35 @@
 
 Get real-time metadata from online radio streams!
 
-### How to Use:
+### How to Use
 
-1. **Start Monitoring:** Use the `/start_monitoring/` endpoint to begin tracking a radio station. 
-   - **Example:** `https:twj.es/start_monitoring/?radio_url=https://example.com/stream` 
+**API Overview:**
+Our API provides detailed radio information, including current song details, song history, album art, and more. The API has two main endpoints:
 
-2. **Get Radio Information:** Once monitoring is started, access the `/radio_info/` endpoint for real-time metadata and history.
-   - **Example:** `https:twj.es/radio_info/?radio_url=https://example.com/stream`
-     
-3. **Get Radio Complete Histoy:** Once monitoring is started, access the `/radio_histoy/` endpoint for complete history.
-   - **Example:** `https://twj.es/radio_history/?radio_url=https://example.com/stream`
+1. **`/get_stream_title/`**
+   - **Purpose:** Updates the song history and the last played song in the database.
+   - **Parameter:** `url` (the URL of the radio stream)
+   - **Example:** `https://twj.es/get_stream_title/?url=https://stream.zeno.fm/yn65fsaurfhvv`
 
-### Available Endpoints:
+2. **`/radio_info/`**
+   - **Purpose:** Retrieves the last played song and the song history for a given radio stream.
+   - **Parameter:** `radio_url` (the URL of the radio stream)
+   - **Example:** `https://twj.es/radio_info/?radio_url=https://stream.zeno.fm/yn65fsaurfhvv`
 
-* `/start_monitoring/` **(GET):** Starts monitoring a radio stream. You must start monitoring before retrieving information.
-    - **Required Parameter:** `radio_url`: The URL of the radio stream. 
-* `/get_stream_title/` **(GET):** Retrieves the current song's title and album art from the radio stream.
-    - **Required Parameter:** `url`: The URL of the radio stream. 
-* `/radio_info/` **(GET):** Provides real-time information about the radio station, including the currently playing song and recent history.
-    - **Required Parameter:** `radio_url`: The URL of the radio stream. 
-* `/radio_history/` **(GET):** Fetches the complete song history from the database for a given radio station. You can set an optional limit on the number of records returned.
-    - **Required Parameter:** `radio_url`: The URL of the radio stream.
-    - **Optional Parameter:** `limit`: The maximum number of records to return.
+### How It Works
+
+1. **Updating Metadata:**
+   - The `/get_stream_title/` endpoint is designed to update the database with the current song's information. This endpoint should be called periodically to keep the song history current. Typically, this is handled by a client-side script running on the player that makes these requests.
+
+2. **Retrieving Information:**
+   - The `/radio_info/` endpoint allows you to query the database for the last played song and the song history. This endpoint provides a JSON response containing this data.
+
+### Important Note
+
+The `/get_stream_title/` endpoint, which updates the metadata, is intended to be called regularly by a client-side script. This script should run on the player's environment, ensuring that the database is continuously updated with the latest song information. As users listen to the radio, the script makes requests to keep the song history up-to-date.
 
 ### Contact
 
-contato@jailson.es
+For any questions or further assistance, please contact us at: [contato@jailson.es](mailto:contato@jailson.es)
+
+Feel free to reach out if you need help with implementing or using the API!
